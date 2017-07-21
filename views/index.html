@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+  <form class="" action="/categories" method="POST">
+    <label for="category">Name</label>
+    <input type="text" name="category" value="">
+    <input type="submit" name="" value="Add!">
+  </form>
+
+{% for category in categories %}
+  <li><a href="/categories/{{category}}/products">{{category}}</a></li>
+{% endfor %}
+
+
+
+{% endblock %}

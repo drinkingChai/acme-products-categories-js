@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+{{ category }}
+
+<form class="" action="/categories/{{category}}/products" method="POST">
+  <label for="product">Product</label>
+  <input type="text" name="product" value="">
+  <input type="submit" name="" value="Add Me!">
+</form>
+
+{% for product in products %}
+  <li>
+    {{product.name}}
+    <form class="" action="/categories/{{category}}/products/{{product.id}}?_method=DELETE" method="POST">
+      <input type="submit" name="" value="Delete :o">
+    </form>
+  </li>
+{% endfor %}
+
+<br>
+<form class="" action="/categories/{{category}}?_method=DELETE" method="POST">
+  <input type="submit" name="" value="Delete!">
+</form>
+
+{% endblock %}

@@ -18,16 +18,13 @@ nunjucks.configure('views', {
 // middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
+app.use(express.static(__dirname + '/public')); //express static can resolve the path!
 app.use('/categories', categories);
 
 
 app.get('/', function (req, res) {
-  res.render('index');
+  res.render('index', { categories: db.getCategoryNames() });
 })
-
-
-
-
 
 
 const port = process.env.PORT || 3000;
