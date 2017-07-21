@@ -19,7 +19,9 @@ router.delete('/:name', function(req, res) {
 // products
 router.get('/:name/products', function(req, res) {
   var category = req.params.name;
-  res.render('products', { category: category, products: db.getProductsByCategory(category) });
+  res.render('products', { category: category,
+                          products: db.getProductsByCategory(category),
+                          categories: db.getCategoryNames() });
 })
 
 router.post('/:name/products', function(req, res) {

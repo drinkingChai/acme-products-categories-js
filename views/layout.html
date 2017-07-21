@@ -9,6 +9,10 @@
 
     <a href="/">Home</a><br>
 
+    {% for category in categories %}
+      <li><a href="/categories/{{category}}/products">{{category}}</a></li>
+    {% endfor %}
+
     {% block content %}{% endblock %}
 
   </body>

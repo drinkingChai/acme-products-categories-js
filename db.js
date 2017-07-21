@@ -43,11 +43,11 @@ module.exports = {
 }
 
 
-// test cases
-// createCategory("Foo Category");
-// createProduct("Foo Category", "foo 1");
-// createProduct("Foo Category", "foo 2");
-// createProduct("Foo Category", "foo 3");
+// test cases / populate database
+createCategory("Foo Category");
+createProduct("Foo Category", "foo 1");
+createProduct("Foo Category", "foo 2");
+createProduct("Foo Category", "foo 3");
 // console.log('added', categories["Foo Category"]);
 // deleteProduct("Foo Category", 2);
 // console.log('del 2', categories["Foo Category"]);
@@ -57,3 +57,6 @@ module.exports = {
 // console.log("Drop Foo", categories);
 // console.log(getCategoryNames());
 // console.log(getProductsByCategory("Foo Category"));
+createCategory("Bar Category");
+createProduct("Bar Category", "bar 1");
+createProduct("Bar Category", "bar 3");
