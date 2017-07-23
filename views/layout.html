@@ -15,12 +15,15 @@
     </header>
 
     <div class="categories">
-      {% for category in categories %}
-      <li class="category"><a href="/categories/{{category}}/products">{{category}}</a></li>
+      {% for _cat in categories %}
+      <li {% if category === _cat %} class="my-btn-default category active" {% else %} class="my-btn-default category" {% endif %}>
+        <a href="/categories/{{_cat}}/products">{{_cat}}</a></li>
       {% endfor %}
     </div>
 
-    {% block content %}{% endblock %}
+    <div class="content">
+      {% block content %}{% endblock %}
+    </div>
 
   </body>
 </html>
