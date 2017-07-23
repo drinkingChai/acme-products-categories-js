@@ -3,15 +3,22 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link href="https://fonts.googleapis.com/css?family=Acme|PT+Serif:700" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/reset.css">
     <link rel="stylesheet" href="/stylesheets/styles.css">
   </head>
   <body>
 
-    <a href="/">Home</a><br>
+    <header>
+      <h1>Acme Products</h1>
+      <h2><a href="/">Home</a></h2>
+    </header>
 
-    {% for category in categories %}
-      <li><a href="/categories/{{category}}/products">{{category}}</a></li>
-    {% endfor %}
+    <div class="categories">
+      {% for category in categories %}
+      <li class="category"><a href="/categories/{{category}}/products">{{category}}</a></li>
+      {% endfor %}
+    </div>
 
     {% block content %}{% endblock %}
 
