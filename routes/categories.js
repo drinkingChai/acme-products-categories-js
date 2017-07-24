@@ -4,7 +4,7 @@ const db = require('../db');
 router.post('/', function(req, res) {
   var category = req.body['category'];
   if (category.trim() === '') {
-    res.render('error');
+    res.render('error', { message: "Blank input!" });
     return;
   }
   db.createCategory(category);
@@ -18,7 +18,13 @@ router.delete('/:name', function(req, res) {
 
 // products
 router.get('/:name/products', function(req, res) {
-  var category = req.params.name;
+  var category = req.params.name,
+    products = db.getProductsByCategory(category);
+  // catch unknown routes
+  if (!products) {
+    res.render('error', { message: "Category not found" });
+    return;
+  }
   res.render('products', { category: category,
                           products: db.getProductsByCategory(category),
                           categories: db.getCategoryNames() });
