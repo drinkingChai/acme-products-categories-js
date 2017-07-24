@@ -16,8 +16,10 @@
 
     <div class="categories">
       {% for _cat in categories %}
-      <li {% if category === _cat %} class="my-btn-default category active" {% else %} class="my-btn-default category" {% endif %}>
-        <a href="/categories/{{_cat}}/products">{{_cat}}</a></li>
+      <a href="/categories/{{_cat}}/products">
+        <li {% if category === _cat %} class="my-btn-default category active" {% else %} class="my-btn-default category" {% endif %}>
+        {{_cat}}</li>
+      </a>
       {% endfor %}
     </div>
 
