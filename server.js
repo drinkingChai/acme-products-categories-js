@@ -20,6 +20,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 app.use(express.static(__dirname + '/public')); //express static can resolve the path!
 app.use('/categories', categories);
+app.use(function(err, req, res, next) {
+  // catch errors and render to error page
+  res.render('error', { message: err });
+})
 
 
 app.get('/', function (req, res) {

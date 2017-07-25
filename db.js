@@ -29,6 +29,7 @@ function getCategoryNames() {
 }
 
 function getProductsByCategory(category) {
+  if (!categories[category]) throw 'Category not found!';
   return categories[category];
 }
 
