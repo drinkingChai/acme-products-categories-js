@@ -1,6 +1,7 @@
 var categories = {};
 
 function createCategory(name) {
+  if (!name.trim()) throw 'Blank input!';
   categories[name] = [];
 }
 

@@ -3,10 +3,6 @@ const db = require('../db');
 
 router.post('/', function(req, res) {
   var category = req.body['category'];
-  if (category.trim() === '') {
-    res.render('error', { message: "Blank input!" });
-    return;
-  }
   db.createCategory(category);
   res.redirect(`/categories/${category}/products`);
 })
